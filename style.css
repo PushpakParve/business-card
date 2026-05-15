@@ -1,0 +1,389 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.id-card{
+  width:100%;
+  max-width:390px;
+  border-radius:22px;
+  padding:24px;
+  transition:all 0.4s ease;
+}
+
+.card-header{
+  text-align:center;
+}
+
+.logo{ width:85px; margin-bottom:10px; }
+
+.badge{
+  display:inline-block;
+  margin-top:6px;
+  padding:4px 14px;
+  font-size:11px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+.live-badge{
+  display:block;
+  margin-top:6px;
+  font-size:11px;
+  color:#00ff6a;
+}
+
+.profile{ text-align:center; margin:18px 0; }
+.profile h2{ font-size:18px; }
+.designation{ font-size:13px; font-weight:600; }
+
+.about{
+  font-size:14px;
+  text-align:center;
+  margin-bottom:18px;
+  line-height:1.5;
+}
+
+.status-strip{
+  margin:18px 0;
+  padding:10px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  border:1px dashed;
+}
+
+.services-row{
+  display:flex;
+  justify-content:space-between;
+  margin:18px 0;
+  text-align:center;
+}
+.services-row div{ flex:1; font-size:12px; }
+.services-row i{ font-size:20px; margin-bottom:6px; }
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-bottom:18px;
+}
+.action-btn{
+  flex:1;
+  padding:12px;
+  border-radius:14px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:16px;
+}
+.link-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.contact{ font-size:14px; margin-bottom:12px; }
+.contact p{ margin:6px 0; }
+
+.social{ text-align:center; margin-bottom:10px; }
+.social a{ font-size:22px; margin:0 10px; }
+
+.security-note{
+  font-size:11px;
+  text-align:center;
+  opacity:0.7;
+  margin-top:10px;
+}
+
+.card-footer{
+  text-align:center;
+  font-size:11px;
+  opacity:0.6;
+  margin-top:6px;
+}
+
+/* ☀️ DAY MODE */
+@media (prefers-color-scheme: light){
+  body{ background:#eef2f7; }
+  .id-card{ background:#fff; color:#000; box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+  .badge{ background:#0b1c2d; color:#fff; }
+  .designation{ color:#0b1c2d; }
+  .status-strip{ border-color:#0b1c2d; }
+  .action-btn.call{ background:#0b1c2d; color:#fff; }
+  .action-btn.whatsapp{ background:#25D366; color:#fff; }
+  .link-btn{ background:#f2f4f8; color:#000; border:1px solid #ddd; }
+  .link-btn i, .contact i, .social a{ color:#0b1c2d; }
+}
+
+/* 🌙 NIGHT MODE */
+@media (prefers-color-scheme: dark){
+  body{ background:linear-gradient(135deg,#050b14,#0b1c2d); }
+  .id-card{ background:#0e1623; color:#fff; box-shadow:0 25px 45px rgba(0,0,0,0.6); border:1px solid rgba(255,183,3,0.35); }
+  .badge{ background:#ffb703; color:#000; }
+  .designation{ color:#ffb703; }
+  .status-strip{ border-color:#ffb703; }
+  .action-btn.call{ background:#1f2f46; color:#fff; }
+  .action-btn.whatsapp{ background:#25D366; color:#fff; }
+  .link-btn{ background:#141f33; color:#fff; border:1px solid rgba(255,183,3,0.3); }
+  .link-btn i, .contact i, .social a{ color:#ffb703; }
+}
+
+/* =====================
+   SERVICE CLICK CARDS
+===================== */
+
+.services-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+
+.service-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:14px 6px;
+  border-radius:14px;
+  text-align:center;
+  text-decoration:none;
+  transition:all 0.25s ease;
+  font-weight:600;
+}
+
+.service-item i{
+  font-size:clamp(20px, 5vw, 24px);
+  margin-bottom:6px;
+}
+
+.service-item span{
+  font-size:clamp(11px, 3vw, 13px);
+}
+
+/* Click effect */
+.service-item:hover{
+  transform:translateY(-4px);
+}
+
+/* DAY MODE */
+@media (prefers-color-scheme: light){
+  .service-item{
+    background:#f2f4f8;
+    color:#0b1c2d;
+    border:1px solid #ddd;
+  }
+  .service-item i{
+    color:#0b1c2d;
+  }
+}
+
+/* NIGHT MODE */
+@media (prefers-color-scheme: dark){
+  .service-item{
+    background:#141f33;
+    color:#fff;
+    border:1px solid rgba(255,183,3,0.35);
+  }
+  .service-item i{
+    color:#ffb703;
+  }
+}
+
+/* SMALL DEVICES */
+@media (max-width:380px){
+  .services-row{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+/* =====================
+   SERVICE ICON ROW
+===================== */
+/*.services-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:18px 0;
+}
+
+.service-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:10px 4px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.service-item i{
+  font-size:clamp(18px, 4vw, 22px);
+  margin-bottom:6px;
+}
+
+.service-item span{
+  font-size:clamp(10px, 2.8vw, 12px);
+  font-weight:600;
+}*/
+
+/* =====================
+   SOCIAL ICONS
+===================== */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:clamp(16px, 5vw, 22px);
+  margin:12px 0;
+}
+
+.social a{
+  width:clamp(40px, 12vw, 46px);
+  height:clamp(40px, 12vw, 46px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  transition:transform 0.2s ease;
+}
+
+.social a i{
+  font-size:clamp(18px, 5vw, 22px);
+}
+
+/* =====================
+   ICON COLORS – DAY
+===================== */
+@media (prefers-color-scheme: light){
+  .service-item{
+    background:#f4f6fa;
+  }
+
+  .service-item i,
+  .social a i{
+    color:#0b1c2d;
+  }
+
+  .social a{
+    background:#f2f4f8;
+  }
+}
+
+/* =====================
+   ICON COLORS – NIGHT
+===================== */
+@media (prefers-color-scheme: dark){
+  .service-item{
+    background:#141f33;
+  }
+
+  .service-item i,
+  .social a i{
+    color:#ffb703;
+  }
+
+  .social a{
+    background:#141f33;
+    border:1px solid rgba(255,183,3,0.35);
+  }
+}
+
+/* =====================
+   VERY SMALL DEVICES
+===================== */
+@media (max-width:360px){
+  .services-row{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+}
+
+/* =====================
+   LOGO FIX (RESPONSIVE)
+===================== */
+.logo-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.logo-wrap img{
+  width:clamp(160px, 55vw, 240px);  /* auto scales */
+  max-width:100%;
+  height:auto;                     /* keep aspect ratio */
+  object-fit:contain;              /* DO NOT crop */
+  display:block;
+}
+
+@media (prefers-color-scheme: dark){
+  .logo-wrap img{
+    filter: drop-shadow(0 6px 14px rgba(255,183,3,0.35));
+  }
+}
+
+@media (prefers-color-scheme: light){
+  .logo-wrap img{
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+  }
+}
+
+/* =====================
+   P4 LOGO SECTION
+===================== */
+
+.p4-section{
+  margin:18px 0;
+  text-align:center;
+}
+
+.p4-section img{
+  width:clamp(90px, 30vw, 120px);
+  height:auto;
+  object-fit:contain;
+  margin-bottom:8px;
+}
+
+.p4-text{
+  font-size:clamp(11px, 3vw, 13px);
+  font-weight:600;
+  line-height:1.4;
+}
+
+/* DAY MODE */
+@media (prefers-color-scheme: light){
+  .p4-text{
+    color:#1a1a1a;
+  }
+}
+
+/* NIGHT MODE */
+@media (prefers-color-scheme: dark){
+  .p4-text{
+    color:#ffb703;
+  }
+}
